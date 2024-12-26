@@ -19,11 +19,11 @@
    - **概述**: 本文讨论了通过压缩通信量来减少联邦学习中的通信开销。作者提出了不同的压缩策略，例如稀疏化和量化，以减少模型更新时的带宽需求。
    - **链接**: [Federated Learning with Compressed Communication](https://arxiv.org/abs/1610.05492)
 
-### 4. **Communication-Efficient Learning in Federated Learning with Non-IID Data**
-   - **作者**: M. Hong, N. D. Sidiropoulos, M. Liu, Z. Zeng, and J. Xu
-   - **年份**: 2020
+### 4. **Robust and Communication-Efficient Federated Learning from Non-IID Data**
+   - **作者**: Sattler, F., Wiedemann, S., Müller, K. R., & Samek, W. (2019).
+   - **年份**: 2019
    - **概述**: 本文分析了联邦学习在数据非独立同分布（Non-IID）情况下的挑战，并提出了通信效率优化的方法。作者讨论了如何通过动态调整通信频率和模型更新策略来应对数据不平衡的问题。
-   - **链接**: [Communication-Efficient Learning in Federated Learning with Non-IID Data](https://arxiv.org/abs/2006.03899)
+   - **链接**: [Robust and Communication-Efficient Federated Learning from Non-IID Data](https://arxiv.org/abs/1903.02891)
 
 ### 5. **Federated Optimization in Heterogeneous Networks**
    - **作者**: L. Chen, M. Zhang, Z. Xiong, and Z. Li
