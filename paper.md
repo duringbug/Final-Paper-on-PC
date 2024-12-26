@@ -40,4 +40,5 @@
 - 通过引入结构化的随机旋转来改进量化过程:
   通过旋转矩阵$R$,使$h' = Rh$的每个维度的数量级进行规范化。在全局更新阶段，需要进行逆旋转还原。需要注意的是，在实践中，$ h $ 的维度通常可以高达 $ d = 10^6 $ 或更高，而生成（$ O(d^3) $）和应用（$ O(d^2) $）一般的旋转矩阵在计算上是不可行的。与 Suresh 等人（2017）的做法相同，使用一种结构化的旋转矩阵，这种矩阵是 Walsh-Hadamard 矩阵与二进制对角矩阵的乘积。这将生成和应用矩阵的计算复杂度降低到 $ O(d) $ 和 $ O(d \log d) $，相对于联邦学习中的本地训练，这些复杂度是可以忽略不计的。
 
-### [Communication-Efficient Learning in Federated Learning with Non-IID Data](https://arxiv.org/abs/2006.03899)
+### [Robust and Communication-Efficient Federated Learning from Non-IID Data](https://arxiv.org/abs/2006.03899)
+
