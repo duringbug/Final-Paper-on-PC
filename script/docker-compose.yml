@@ -1,0 +1,22 @@
+services:
+  android:
+    image: duringbug/android  # 你的镜像名称
+    container_name: android_container  # 容器名称
+    build:
+      context: .  # Dockerfile所在目录
+    volumes:
+      - ./workspace:/workspace  # 将本地工作目录挂载到容器中的 /workspace
+    environment:
+      - TZ=Asia/Shanghai  # 时区设置
+    ports:
+      - "8080:8080"  # 如果需要公开端口，可以在此处配置
+    stdin_open: true  # 保持容器的标准输入流打开
+    tty: true  # 启用终端
+    privileged: true
+    cap_add:
+      - NET_ADMIN  # 赋予容器网络管理权限
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'  # 限制 CPU 使用，0.5 表示使用最大半个 CPU
+          memory: 200M  # 限制内存使用，200M
