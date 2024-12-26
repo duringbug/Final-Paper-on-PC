@@ -13,4 +13,31 @@
 ### 同步与节点参与度不均问题：
 联邦学习的全局模型更新参数会把一个周期内的局部模型的传递值采集完成才能进行更新。可以打破周期更新的局限性。局部模型参数可以随时上传，靠权重更新（异步通信）；
 
-### 
+## 论文 
+
+### [Federated Learning with Quantized Models](https://arxiv.org/abs/2003.03827)
+该论文介绍了传递$H_t^{i}$的压缩方法: __Structured updates__ 和 __Sketched updates__ 
+
+#### __Structured updates__
+- 低秩矩阵: 限制$rank(H_t^{i}) ≤ k$
+  $H_t^{i}= \mathbb{R}^{d_1 \times k}\cdot \mathbb{R}^{k \times d_2}$
+- 随机掩码: 通过seed生成掩码矩阵，传输只用传递seed和非零值
+
+#### __Sketched updates__
+有损压缩
+- 子采样: 与随机掩码类似，不同的是可能会发送0值
+- 数据离散化: 
+  这种方法可以把连续的数据划分到$2^{\mathbb{b}}$个离散值上，把数据用$\mathbb{b}$bit即可表示
+  $$
+  h_j =
+  \begin{cases}
+  h_{\text{max}}, & \text{with probability } \frac{h_j - h_{\text{min}}}{h_{\text{max}} - h_{\text{min}}} \\
+  h_{\text{min}}, & \text{with probability } \frac{h_{\text{max}} - h_j}{h_{\text{max}} - h_{\text{min}}}
+  \end{cases}
+  $$
+  但有局限性: 要求不同维度之间的数据范围大致在同一个数量级内
+
+- 通过引入结构化的随机旋转来改进量化过程:
+  通过旋转矩阵$R$,使$h' = Rh$的每个维度的数量级进行规范化。在全局更新阶段，需要进行逆旋转还原。需要注意的是，在实践中，$ h $ 的维度通常可以高达 $ d = 10^6 $ 或更高，而生成（$ O(d^3) $）和应用（$ O(d^2) $）一般的旋转矩阵在计算上是不可行的。与 Suresh 等人（2017）的做法相同，使用一种结构化的旋转矩阵，这种矩阵是 Walsh-Hadamard 矩阵与二进制对角矩阵的乘积。这将生成和应用矩阵的计算复杂度降低到 $ O(d) $ 和 $ O(d \log d) $，相对于联邦学习中的本地训练，这些复杂度是可以忽略不计的。
+
+### [Communication-Efficient Learning in Federated Learning with Non-IID Data](https://arxiv.org/abs/2006.03899)
