@@ -29,13 +29,13 @@
    - **作者**: L. Chen, M. Zhang, Z. Xiong, and Z. Li
    - **年份**: 2021
    - **概述**: 本文研究了在异构网络环境下进行联邦优化的问题，提出了一种新的算法来减少不同网络条件下的通信开销，并提高联邦学习的效率和鲁棒性。
-   - **链接**: [Federated Optimization in Heterogeneous Networks](https://arxiv.org/abs/2103.08426)
+   - **链接**: [Federated Optimization in Heterogeneous Networks](https://arxiv.org/abs/1812.06127)
 
 ### 6. **Efficient Federated Learning with Adaptive Communication and Local Update Policies**
    - **作者**: S. H. Shah, M. M. N. Chowdhury, and N. N. X. Huang
-   - **年份**: 2020
+   - **年份**: 2021
    - **概述**: 本文提出了一种适应性通信和本地更新策略，以减少联邦学习中的通信开销。作者通过自适应调整每轮本地更新次数来平衡计算和通信的开销。
-   - **链接**: [Efficient Federated Learning with Adaptive Communication and Local Update Policies](https://arxiv.org/abs/2003.01571)
+   - **链接**: [Efficient Federated Learning with Adaptive Communication and Local Update Policies](https://arxiv.org/abs/2405.03248)
 
 ### 7. **Towards Communication-Efficient Federated Learning**
    - **作者**: F. Yu, Y. Liu, Y. Zhang, and H. Wang

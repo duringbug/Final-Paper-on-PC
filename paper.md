@@ -197,3 +197,28 @@ $$
 4. **压缩效果**：
 - 使用 Golomb 编码后，位置编码的平均位数（$ \bar{b}_{\text{pos}} $）将被压缩到 $ b^* + 1 $，这比起使用传统的固定长度编码（例如 16 位固定编码）要高效得多。例如，对于 $ p = 0.01 $ 的稀疏率，平均位数约为 $\bar{b}_{\text{pos}}=8.38$，比传统编码方案节省了约 1.9 倍的空间。
 
+### [Federated Optimization in Heterogeneous Networks](https://arxiv.org/abs/1812.06127)
+
+解决系统复杂性与异质性给联邦学习带来地挑战。在系统异质性的背景下，FedAvg不允许参与设备根据其底层系统约束执行不同数量的本地工作。通常的做法是简单地丢弃未能在指定时间窗口内计算E个周期的设备
+
+**FedProx**（Federated Proximal）是一个用于 **联邦学习**（Federated Learning）中的优化方法，旨在解决传统联邦学习方法（如FedAvg）在异质数据和非独立同分布（non-IID）情况下性能不佳的问题。FedProx方法通过引入一个**proximal term**（近端项）来增强优化过程的鲁棒性，改善在数据分布不均的情况下的训练效果。
+
+
+
+
+$$
+\min_{\theta} \mathbb{E}_{i \sim P} \left[ \mathcal{L}_i(\theta) + \frac{\mu}{2} \|\theta - \theta_i^{\text{global}}\|^2 \right]
+$$
+
+其中：
+
+- $\mathcal{L}_i(\theta)$ 是第 ii 个客户端的局部损失函数。
+- $\theta_i^{\text{global}}$ 是全局模型的参数。
+- $\mu$ 是正则化参数，控制proximal term的影响。
+- $\|\theta - \theta_i^{\text{global}}\|$是每个客户端的局部模型和全局模型之间的差异。
+
+我感觉只解决了数据复杂性带来的挑战，异质性并未解决。理想的模型应该是设备训练好了才上传，否则会损失部分信息
+
+### [Efficient Federated Learning with Adaptive Communication and Local Update Policies](https://arxiv.org/abs/2405.03248)
+
+这篇论文提出了一种在 **动态带宽** 环境下，利用 **自适应压缩** 技术来提高 **联邦学习** 中的 **通信效率** 的方法。传统的联邦学习在不同设备之间频繁传输大量模型更新，消耗了大量的带宽。在带宽动态变化的情况下，如何动态调整压缩率，以保证在有限的带宽条件下仍能有效地进行学习，是本文的研究重点。通过这种方式，可以有效减少通信开销，提高联邦学习的可扩展性和效率。
